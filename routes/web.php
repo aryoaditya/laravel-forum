@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DiscussController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('discussions', [DiscussController::class, 'index']);
+Route::get('discussions/create', [DiscussController::class, 'create']);
+Route::post('discussions', [DiscussController::class, 'store']);
+Route::get('discussions/{id}', [DiscussController::class, 'show']);
+Route::get('discussions/{id}/edit', [DiscussController::class, 'edit']);
+Route::patch('discussions/{id}', [DiscussController::class, 'update']);
+Route::delete('discussions/{id}', [DiscussController::class, 'destroy']);
