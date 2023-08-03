@@ -16,7 +16,7 @@
     <div class="container mt-4">
         <h3>Discussion Forum <a href="{{ url('discussions/create') }}" class="btn btn-primary">New Post</a></h3>
         @foreach($posts as $post)
-        @php($slicedContent = substr($post->content, 0, 100))
+        @php($slicedContent = substr($post->content, 0, 150))
         <div class="card my-2 mx-auto" style="width: 90%;">
             <div class="card-body">
                 <h5 class="card-title">{{ $post->title }}</h5>
