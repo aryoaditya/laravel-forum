@@ -18,7 +18,7 @@ class AuthController extends Controller
     public function authenticate(Request $request)
     {
         $credentials = $request->only('email', 'password');
-        
+
         if(Auth::attempt($credentials))
         {
             return redirect('discussions');
@@ -27,17 +27,17 @@ class AuthController extends Controller
         }
     }
 
-    public function register_form()
-    {
-        return view('auth.register');
-    }
+    // public function register_form()
+    // {
+    //     return view('auth.register');
+    // }
 
-    public function register(Request $request)
-    {
-        $request->validate([
-            'name'      => 'required',
-            'email'     => 'required|email|unique:users',
-            'password'  => 'required|min:6|confirmed',
-        ]);
-    }
+    // public function register(Request $request)
+    // {
+    //     $request->validate([
+    //         'name'      => 'required',
+    //         'email'     => 'required|email|unique:users',
+    //         'password'  => 'required|min:6|confirmed',
+    //     ]);
+    // }
 }
