@@ -33,11 +33,9 @@ class DiscussController extends Controller
         $content = $request->input('content');
 
         // INSERT INTO posts SET title='judul', content='content'
-        Post::insert([
+        Post::create([
                 'title' => $title,
-                'content' => $content,
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
+                'content' => $content
             ]);
         
         return redirect('discussions');
