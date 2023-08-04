@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Discussions | Edit Post')
+
 @section('content')
 <form action='{{ url("discussions/$post->id") }}' method="POST">
     @method('PATCH')

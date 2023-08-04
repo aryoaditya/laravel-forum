@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Discussions')
+
 @section('content')
 <h3>Discussion Forum <a href="{{ url('discussions/create') }}" class="btn btn-primary">New Post</a></h3>
 @foreach($posts as $post)

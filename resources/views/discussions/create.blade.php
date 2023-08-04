@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Discussions | Create New Post')
+
 @section('content')
 <form action='{{ url("discussions") }}' method="POST">
     @csrf

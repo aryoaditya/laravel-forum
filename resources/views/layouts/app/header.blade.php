@@ -13,7 +13,8 @@
             </form>
 
             <div class="text-end">
-                <button type="button" class="btn btn-outline-light me-2">Login</button>
+                <a href="{{ url('login') }}" class="btn btn-outline-light me-2">Login</a>
+                <a href="{{ url('register') }}" class="btn btn-outline-light me-2">Sign Up</a>
             </div>
         </div>
     </div>

@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', "Discussions | $post->title")
+
 @section('content')
 <article class="blog-post">
     <h2 class="display-5 link-body-emphasis mb-1">{{ $post->title }}</h2>
