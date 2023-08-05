@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Post;
 
 class DiscussController extends Controller
 {
     public function index()
     {
+        if(!Auth::check()){
+            return redirect('login');
+        }
         // SELECT * FROM posts
         $posts = Post::active()->get();
 
@@ -24,6 +28,10 @@ class DiscussController extends Controller
 
     public function create()
     {
+        if(!Auth::check()){
+            return redirect('login');
+        }
+
         return view('discussions.create');
     }
 
@@ -43,6 +51,9 @@ class DiscussController extends Controller
 
     public function show(string $id)
     {
+        if(!Auth::check()){
+            return redirect('login');
+        }
         // SELECT * FROM posts WHERE id="$id"
         $selected_posts = Post::where('id', $id)->first();
         $comments = $selected_posts->comments()->get();
@@ -59,6 +70,9 @@ class DiscussController extends Controller
 
     public function edit(string $id)
     {
+        if(!Auth::check()){
+            return redirect('login');
+        }
         // SELECT * FROM posts WHERE id="$id"
         $selected_posts = Post::where('id', $id)->first();
 

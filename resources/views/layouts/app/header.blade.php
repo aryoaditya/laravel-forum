@@ -13,8 +13,13 @@
             </form>
 
             <div class="text-end">
-                <a href="{{ url('login') }}" class="btn btn-outline-light me-2">Login</a>
-                <a href="{{ url('register') }}" class="btn btn-outline-light me-2">Sign Up</a>
+                @if (Auth::check())
+                    <a href="{{ url('logout') }}" class="btn btn-outline-light me-2">Logout</a>
+                @else {
+                    <a href="{{ url('login') }}" class="btn btn-outline-light me-2">Login</a>
+                    <a href="{{ url('register') }}" class="btn btn-outline-light me-2">Sign Up</a>
+                }
+                @endif
             </div>
         </div>
     </div>
