@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use App\Models\Post;
+use App\Mail\DiscussionPosted;
 
 class DiscussController extends Controller
 {
@@ -41,10 +43,12 @@ class DiscussController extends Controller
         $content = $request->input('content');
 
         // INSERT INTO posts SET title='judul', content='content'
-        Post::create([
+        $post = Post::create([
                 'title' => $title,
                 'content' => $content
             ]);
+        
+        Mail::to(Auth::user()->email)->send(new DiscussionPosted($post));
         
         return redirect('discussions');
     }
